@@ -1,0 +1,92 @@
+﻿=== Entrenamiento SECUENCIAL de la red neuronal ===
+Datos cargados en 0.6 s | entrenamiento: 840000 filas | prueba: 210000 filas | entradas: 52 | CPUs: 24
+MARCA_INICIO_MS=1790390030050
+
+Repetición 1/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.50 s)
+  Época 2/3  pérdida = 1.062053  (2.77 s)
+  Época 3/3  pérdida = 1.052324  (2.81 s)
+  TIEMPO_MS=8074
+
+Repetición 2/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.78 s)
+  Época 2/3  pérdida = 1.062053  (2.74 s)
+  Época 3/3  pérdida = 1.052324  (2.72 s)
+  TIEMPO_MS=8230
+
+Repetición 3/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.84 s)
+  Época 2/3  pérdida = 1.062053  (2.77 s)
+  Época 3/3  pérdida = 1.052324  (2.70 s)
+  TIEMPO_MS=8320
+
+Repetición 4/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.81 s)
+  Época 2/3  pérdida = 1.062053  (2.77 s)
+  Época 3/3  pérdida = 1.052324  (2.79 s)
+  TIEMPO_MS=8371
+
+Repetición 5/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.76 s)
+  Época 2/3  pérdida = 1.062053  (2.80 s)
+  Época 3/3  pérdida = 1.052324  (2.76 s)
+  TIEMPO_MS=8321
+
+Repetición 6/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.81 s)
+  Época 2/3  pérdida = 1.062053  (2.72 s)
+  Época 3/3  pérdida = 1.052324  (2.67 s)
+  TIEMPO_MS=8201
+
+Repetición 7/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.79 s)
+  Época 2/3  pérdida = 1.062053  (2.74 s)
+  Época 3/3  pérdida = 1.052324  (2.77 s)
+  TIEMPO_MS=8306
+
+Repetición 8/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.87 s)
+  Época 2/3  pérdida = 1.062053  (2.78 s)
+  Época 3/3  pérdida = 1.052324  (2.75 s)
+  TIEMPO_MS=8400
+
+Repetición 9/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.83 s)
+  Época 2/3  pérdida = 1.062053  (2.86 s)
+  Época 3/3  pérdida = 1.052324  (2.77 s)
+  TIEMPO_MS=8457
+
+Repetición 10/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.80 s)
+  Época 2/3  pérdida = 1.062053  (2.74 s)
+  Época 3/3  pérdida = 1.052324  (2.85 s)
+  TIEMPO_MS=8395
+
+Repetición 11/11 (3 épocas, 1 hilo)
+  Época 1/3  pérdida = 1.085391  (2.91 s)
+  Época 2/3  pérdida = 1.062053  (2.79 s)
+  Época 3/3  pérdida = 1.052324  (2.79 s)
+  TIEMPO_MS=8492
+MARCA_FIN_MS=1790390121623
+
+=== Predicción sobre 210000 pacientes de prueba ===
+Exactitud: 44.03 %
+  Anormal     100221 pacientes (47.7 %)
+  Inconcluso   50419 pacientes (24.0 %)
+  Normal       59360 pacientes (28.3 %)
+
+=== Cola de priorización: 10 pacientes con mayor probabilidad de examen ANORMAL ===
+  #  Paciente  Edad Condición     Admisión   Medicamento   Estancia  P(Anormal)  Predicción
+  1   1022949    15 Diabetes      Elective   Lipitor           1 d      0.921   Anormal
+  2   1022758    15 Diabetes      Elective   Lipitor           1 d      0.920   Anormal
+  3    995249    16 Diabetes      Elective   Lipitor           1 d      0.918   Anormal
+  4    980668    16 Diabetes      Elective   Lipitor           1 d      0.916   Anormal
+  5   1041724    17 Diabetes      Elective   Lipitor           1 d      0.915   Anormal
+  6    855497    17 Diabetes      Elective   Lipitor           1 d      0.913   Anormal
+  7   1015746    19 Diabetes      Elective   Lipitor           1 d      0.911   Anormal
+  8    932486    20 Diabetes      Elective   Lipitor           1 d      0.908   Anormal
+  9    937885    15 Diabetes      Elective   Lipitor           3 d      0.906   Anormal
+ 10    988675    21 Obesity       Urgent     Paracetamol      21 d      0.902   Anormal
+
+Predicciones completas guardadas en predicciones_secuencial.csv
+
