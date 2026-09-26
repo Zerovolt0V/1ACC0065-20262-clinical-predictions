@@ -14,11 +14,72 @@ Docente: Montalvo García Peter Jonathan
 
 Apoyo a la priorización clínica en un hospital (ODS 3 – Salud y bienestar): a partir de los datos de admisión de un
 paciente (edad, condición médica, tipo de admisión, medicación, monto facturado, días de estancia, etc.) predecir si el
-resultado de su examen será **Normal**, **Anormal** o **Inconcluso** (`Test Results`, 3 clases).
+resultado de su examen será **Normal**, **Anormal** o **Inconcluso** (`Test Results`, 3 clases), y ordenar a los pacientes
+en una **cola de priorización** según su probabilidad de examen anormal.
 
-Modelo asignado: **Redes Neuronales** (feedforward), a implementar en **Go puro** con goroutines, channels,
-`sync.WaitGroup` y `sync.Mutex`, usando los patrones Worker Pool y Pipeline, con verificación de la lógica de
-sincronización en Promela/Spin.
+Modelo asignado: **Redes Neuronales** (feedforward 52 → 64 → 3), implementadas en **Go puro** con goroutines,
+`sync.WaitGroup` y `sync.Mutex`, con el patrón Worker Pool, y con la lógica de sincronización modelada en Promela y
+verificada con Spin.
+
+## Entregable 2 — programas en Go, Promela y speedup
+
+### Ejecutar
+
+```powershell
+go run secuencial/secuencial.go 3 1          # secuencial: [épocas] [repeticiones]
+go run concurrente/concurrente.go 24 3 1     # concurrente: [workers] [épocas] [repeticiones]
+```
+
+Ambos cargan el dataset de 1 050 000 registros, entrenan la red (80 % de las filas), predicen el 20 % restante y muestran
+la cola de priorización (los 10 pacientes con mayor probabilidad de examen anormal); la cola completa se guarda en
+`predicciones_*.csv`. Cada programa está en **un solo archivo** y usa únicamente lo visto en clase.
+
+### Algoritmo concurrente (SPMD con promedio por época)
+
+W goroutines entrenan cada una una partición del dataset con una **copia local** de los pesos; al terminar la época suman
+sus pesos en acumuladores compartidos dentro de una **sección crítica** (`sync.Mutex`); el programa principal espera a
+todas con `sync.WaitGroup` (barrera), promedia y lanza la siguiente época. La predicción usa un **Worker Pool** de W
+goroutines sobre rangos disjuntos del conjunto de prueba.
+
+### Benchmark
+
+```powershell
+Remove-Item bench\results.csv, bench\salidas\* -Force -ErrorAction SilentlyContinue      # empezar un barrido limpio
+powershell -ExecutionPolicy Bypass -File bench/run_bench.ps1 -Workers "1,2,4,8,12,16,24,32,48,64,96,128"   # ≈ 7 min
+python bench/analyze.py                                           # media recortada, speedup, eficiencia, figuras
+```
+
+`run_bench.ps1` ejecuta el secuencial y cada número de workers como un proceso independiente (1 calentamiento +
+10 repeticiones cada uno) y muestrea la CPU y la memoria del proceso cada 100 ms. `analyze.py` calcula la media
+recortada al 10 %, el speedup, la eficiencia y el punto de equilibrio, escribe `bench/tabla.md` y `bench/resumen.json`,
+y genera las figuras en `docs/evidencia/` (carpeta local, no versionada).
+
+Resultados en el equipo de pruebas (Ryzen 9 7900X3D, 12 núcleos / 24 hilos lógicos, 3 épocas, media recortada de 10 corridas):
+
+| Configuración | Tiempo | Speedup | Eficiencia |
+|---|---|---|---|
+| Secuencial | 8.35 s | 1.00× | — |
+| Concurrente W = 4 | 2.86 s | 2.92× | 73 % |
+| Concurrente W = 8 | 1.59 s | 5.26× | 66 % |
+| Concurrente W = 12 | 1.15 s | 7.29× | 61 % |
+| Concurrente W = 16 | 0.92 s | 9.08× | 57 % |
+| **Concurrente W = 24** | **0.71 s** | **11.77×** | 49 % |
+| Concurrente W = 32 | 0.83 s | 10.09× | 32 % |
+| Concurrente W = 128 | 0.75 s | 11.14× | 9 % |
+
+El speedup crece hasta **W = 24** (uno por hilo lógico), que es el máximo y el punto de equilibrio; con más goroutines
+que hilos (sobresuscripción) cae y ya no se recupera, mientras la memoria y la pérdida por época empeoran. Tabla completa
+en `bench/tabla.md`.
+
+### Modelo en Promela (WSL)
+
+```bash
+cd promela
+spin -a -DSIN_SEMAFORO entrenamiento.pml && gcc pan.c -o pan && ./pan   # sin semáforo: assertion violated
+spin -a entrenamiento.pml && gcc pan.c -o pan && ./pan                  # con semáforo: errors: 0, sin deadlocks
+```
+
+Salidas de referencia en `promela/resultados/`.
 
 ## Dataset
 
@@ -62,27 +123,31 @@ python data_augmentation.py --input data/processed/healthcare_clean.csv --output
 ## Estructura del repositorio
 
 ```
-data/
-  raw/healthcare_dataset.csv          # original de Kaggle
-  processed/healthcare_clean.csv      # dataset limpio (entrada del aumento)
-  processed/codebook.json             # mapeo código -> etiqueta de las columnas codificadas
-  healthcare_synthetic_1M.csv         # dataset aumentado (entrada del entrenamiento)
-data_cleaning.py
-data_augmentation.py
-requirements.txt
+secuencial/secuencial.go              # entrenamiento secuencial (1 hilo) + predicción + cola de priorización
+concurrente/concurrente.go            # entrenamiento concurrente SPMD (goroutines, WaitGroup, Mutex) + worker pool
+promela/entrenamiento.pml             # modelo de la sincronización; -DSIN_SEMAFORO reproduce la carrera
+promela/resultados/                   # salidas de spin/pan con y sin semáforo
+bench/run_bench.ps1                   # benchmark: un proceso por configuración, CPU y memoria muestreadas
+bench/analyze.py                      # media recortada, speedup, eficiencia, figuras
+bench/results.csv · tabla.md · resumen.json · salidas/   # resultados del barrido de 1 a 128 workers
+docs/GUIA-EJECUCION.md                # guía detallada de ejecución
+data/                                 # datasets (raw, limpio, aumentado) y codebook
+data_cleaning.py · data_augmentation.py · requirements.txt
 ```
 
 ## Flujo de trabajo (GitFlow)
 
 - `main`: versión estable de cada entregable.
 - `develop`: integración del trabajo del grupo.
-- `feature/*`: una rama por funcionalidad, fusionada a `develop` mediante pull request
-  (`feature/data-cleaning`, `feature/data-augmentation`, `feature/promela-model`, `feature/go-concurrent-nn`, …).
+- `feature/*`: una rama por funcionalidad, fusionada a `develop` mediante pull request.
+  - PC1: `feature/data-cleaning` (limpieza y dataset), `feature/dataset-original`, `feature/readme`.
+  - PC2: `feature/go-red-neuronal` (programas secuencial y concurrente, benchmark y evidencias),
+    `feature/promela-model` (modelo en Promela y verificación con Spin), `feature/readme-pc2` (README y guía de ejecución).
 
 ## Entregables
 
-1. **PC1 (semana 3)** – Investigación bibliográfica, caso de uso, dataset limpio y aumentado. ← *este estado*
-2. **PC2 (semana 5)** – Modelo en Promela, implementación secuencial y concurrente en Go, speedup.
+1. **PC1 (semana 3)** – Investigación bibliográfica, caso de uso, dataset limpio y aumentado. ✔
+2. **PC2 (semana 5)** – Modelo en Promela, implementación secuencial y concurrente en Go, speedup. ← *este estado*
 3. **TP (semana 7)** – Verificación formal en Spin, informe de análisis con IA, conclusiones.
 
 ## Fuentes
@@ -90,3 +155,4 @@ requirements.txt
 - Dataset original: Prasad Patil, *Healthcare Dataset*, Kaggle. https://www.kaggle.com/datasets/prasad22/healthcare-dataset
 - Limpieza base (pasos 1–5) tomada del proyecto del curso de Big Data del grupo:
   https://github.com/SofiaGMiranda/BIG-DATA-FINAL-PROYECT-2025-01
+- Algoritmo SPMD en Go: Kalwarowskyj, D., & Schikuta, E. (2023). *SPMD-based neural network simulation with Golang*. ICCS 2023.
