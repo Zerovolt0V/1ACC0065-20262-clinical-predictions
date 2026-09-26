@@ -1,2 +1,8 @@
 __pycache__/
 *.pyc
+predicciones_*.csv
+bench/bin/
+promela/pan*
+promela/*.trail
+promela/_spin_nvr.tmp
+docs/evidencia/
