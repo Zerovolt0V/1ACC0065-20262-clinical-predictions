@@ -1,0 +1,30 @@
+pan:1: assertion violated (critical<=1) (at depth 55)
+pan: wrote entrenamiento.pml.trail
+
+(Spin Version 6.5.2 -- 6 December 2019)
+Warning: Search not completed
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (none specified)
+	assertion violations	+
+	acceptance   cycles 	- (not selected)
+	invalid end states	+
+
+State-vector 72 byte, depth reached 83, errors: 1
+      163 states, stored
+       38 states, matched
+      201 transitions (= stored+matched)
+        2 atomic steps
+hash conflicts:         0 (resolved)
+
+Stats on memory usage (in Megabytes):
+    0.016	equivalent memory usage for states (stored*(State-vector + overhead))
+    0.289	actual memory usage for states
+  128.000	memory used for hash table (-w24)
+    0.534	memory used for DFS stack (-m10000)
+  128.730	total actual memory usage
+
+
+
+pan: elapsed time 0 seconds
