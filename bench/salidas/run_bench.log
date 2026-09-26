@@ -1,0 +1,18 @@
+Compilando...
+[19:58:39] secuencial  workers=0  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 7,353 ms | CPU en entrenamiento = 81,222 ms de 81,432 ms | pico RAM = 649.4 MB
+[20:00:02] concurrente  workers=1  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 7,362 ms | CPU en entrenamiento = 80,788 ms de 80,993 ms | pico RAM = 648.1 MB
+[20:01:25] concurrente  workers=2  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 3,721 ms | CPU en entrenamiento = 81,100 ms de 40,939 ms | pico RAM = 651.3 MB
+[20:02:07] concurrente  workers=4  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 1,927 ms | CPU en entrenamiento = 83,914 ms de 21,238 ms | pico RAM = 648.6 MB
+[20:02:30] concurrente  workers=8  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 1,256 ms | CPU en entrenamiento = 106,152 ms de 13,649 ms | pico RAM = 656 MB
+[20:02:45] concurrente  workers=12  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 1,022 ms | CPU en entrenamiento = 124,483 ms de 11,119 ms | pico RAM = 663.8 MB
+[20:02:57] concurrente  workers=16  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 791 ms | CPU en entrenamiento = 125,179 ms de 8,694 ms | pico RAM = 665.7 MB
+[20:03:07] concurrente  workers=24  (3 epocas x 11 repeticiones)
+           media (sin calentamiento) = 766 ms | CPU en entrenamiento = 170,197 ms de 8,377 ms | pico RAM = 681 MB
+Listo en 4.6 min. Resultados en bench/results.csv

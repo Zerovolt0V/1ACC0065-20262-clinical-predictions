@@ -1,0 +1,93 @@
+﻿=== Entrenamiento CONCURRENTE (SPMD) de la red neuronal con 24 workers ===
+Datos cargados en 0.6 s | entrenamiento: 840000 filas | prueba: 210000 filas | entradas: 52 | CPUs: 24
+MARCA_INICIO_MS=1790384588039
+
+Repetición 1/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.24 s)
+  Época 2/3  pérdida = 1.099757  (0.23 s)
+  Época 3/3  pérdida = 1.098028  (0.24 s)
+  TIEMPO_MS=708
+
+Repetición 2/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.26 s)
+  Época 2/3  pérdida = 1.099757  (0.26 s)
+  Época 3/3  pérdida = 1.098028  (0.24 s)
+  TIEMPO_MS=756
+
+Repetición 3/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.26 s)
+  Época 2/3  pérdida = 1.099757  (0.25 s)
+  Época 3/3  pérdida = 1.098028  (0.27 s)
+  TIEMPO_MS=780
+
+Repetición 4/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.25 s)
+  Época 2/3  pérdida = 1.099757  (0.27 s)
+  Época 3/3  pérdida = 1.098028  (0.25 s)
+  TIEMPO_MS=766
+
+Repetición 5/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.25 s)
+  Época 2/3  pérdida = 1.099757  (0.24 s)
+  Época 3/3  pérdida = 1.098028  (0.25 s)
+  TIEMPO_MS=742
+
+Repetición 6/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.25 s)
+  Época 2/3  pérdida = 1.099757  (0.24 s)
+  Época 3/3  pérdida = 1.098028  (0.26 s)
+  TIEMPO_MS=752
+
+Repetición 7/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.26 s)
+  Época 2/3  pérdida = 1.099757  (0.24 s)
+  Época 3/3  pérdida = 1.098028  (0.25 s)
+  TIEMPO_MS=747
+
+Repetición 8/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.27 s)
+  Época 2/3  pérdida = 1.099757  (0.26 s)
+  Época 3/3  pérdida = 1.098028  (0.25 s)
+  TIEMPO_MS=781
+
+Repetición 9/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.26 s)
+  Época 2/3  pérdida = 1.099757  (0.24 s)
+  Época 3/3  pérdida = 1.098028  (0.27 s)
+  TIEMPO_MS=766
+
+Repetición 10/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.25 s)
+  Época 2/3  pérdida = 1.099757  (0.25 s)
+  Época 3/3  pérdida = 1.098028  (0.27 s)
+  TIEMPO_MS=765
+
+Repetición 11/11 (3 épocas, 24 goroutines, 35000 filas por goroutine)
+  Época 1/3  pérdida = 1.106438  (0.27 s)
+  Época 2/3  pérdida = 1.099757  (0.27 s)
+  Época 3/3  pérdida = 1.098028  (0.26 s)
+  TIEMPO_MS=808
+MARCA_FIN_MS=1790384596416
+Worker pool de predicción: 24 workers, 76902 aciertos de 210000
+
+=== Predicción sobre 210000 pacientes de prueba ===
+Exactitud: 36.62 %
+  Anormal      91070 pacientes (43.4 %)
+  Inconcluso   66765 pacientes (31.8 %)
+  Normal       52165 pacientes (24.8 %)
+
+=== Cola de priorización: 10 pacientes con mayor probabilidad de examen ANORMAL ===
+  #  Paciente  Edad Condición     Admisión   Medicamento   Estancia  P(Anormal)  Predicción
+  1   1037604    66 Asthma        Urgent     Ibuprofen         2 d      0.445   Anormal
+  2    922194    63 Asthma        Urgent     Ibuprofen         2 d      0.445   Anormal
+  3    975444    67 Asthma        Urgent     Ibuprofen         2 d      0.444   Anormal
+  4    956471    66 Asthma        Urgent     Ibuprofen         3 d      0.444   Anormal
+  5    992581    66 Asthma        Urgent     Ibuprofen         3 d      0.444   Anormal
+  6    939825    66 Asthma        Urgent     Ibuprofen         3 d      0.444   Anormal
+  7    968094    64 Asthma        Urgent     Ibuprofen         4 d      0.443   Anormal
+  8   1012844    63 Asthma        Urgent     Ibuprofen         4 d      0.443   Anormal
+  9   1018787    67 Asthma        Urgent     Ibuprofen         4 d      0.442   Anormal
+ 10    847321    36 Hypertension  Urgent     Ibuprofen        20 d      0.437   Anormal
+
+Predicciones completas guardadas en predicciones_concurrente.csv
+
