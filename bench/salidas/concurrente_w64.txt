@@ -1,0 +1,93 @@
+﻿=== Entrenamiento CONCURRENTE (SPMD) de la red neuronal con 64 workers ===
+Datos cargados en 0.6 s | entrenamiento: 840000 filas | prueba: 210000 filas | entradas: 52 | CPUs: 24
+MARCA_INICIO_MS=1790390369662
+
+Repetición 1/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.25 s)
+  Época 2/3  pérdida = 1.102554  (0.24 s)
+  Época 3/3  pérdida = 1.100740  (0.24 s)
+  TIEMPO_MS=734
+
+Repetición 2/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.26 s)
+  Época 2/3  pérdida = 1.102554  (0.25 s)
+  Época 3/3  pérdida = 1.100740  (0.24 s)
+  TIEMPO_MS=743
+
+Repetición 3/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.26 s)
+  Época 2/3  pérdida = 1.102554  (0.25 s)
+  Época 3/3  pérdida = 1.100740  (0.25 s)
+  TIEMPO_MS=749
+
+Repetición 4/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.27 s)
+  Época 2/3  pérdida = 1.102554  (0.27 s)
+  Época 3/3  pérdida = 1.100740  (0.27 s)
+  TIEMPO_MS=801
+
+Repetición 5/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.27 s)
+  Época 2/3  pérdida = 1.102554  (0.25 s)
+  Época 3/3  pérdida = 1.100740  (0.26 s)
+  TIEMPO_MS=787
+
+Repetición 6/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.27 s)
+  Época 2/3  pérdida = 1.102554  (0.27 s)
+  Época 3/3  pérdida = 1.100740  (0.27 s)
+  TIEMPO_MS=813
+
+Repetición 7/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.27 s)
+  Época 2/3  pérdida = 1.102554  (0.26 s)
+  Época 3/3  pérdida = 1.100740  (0.26 s)
+  TIEMPO_MS=786
+
+Repetición 8/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.26 s)
+  Época 2/3  pérdida = 1.102554  (0.26 s)
+  Época 3/3  pérdida = 1.100740  (0.26 s)
+  TIEMPO_MS=769
+
+Repetición 9/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.29 s)
+  Época 2/3  pérdida = 1.102554  (0.27 s)
+  Época 3/3  pérdida = 1.100740  (0.26 s)
+  TIEMPO_MS=824
+
+Repetición 10/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.27 s)
+  Época 2/3  pérdida = 1.102554  (0.26 s)
+  Época 3/3  pérdida = 1.100740  (0.26 s)
+  TIEMPO_MS=791
+
+Repetición 11/11 (3 épocas, 64 goroutines, 13125 filas por goroutine)
+  Época 1/3  pérdida = 1.112794  (0.26 s)
+  Época 2/3  pérdida = 1.102554  (0.28 s)
+  Época 3/3  pérdida = 1.100740  (0.26 s)
+  TIEMPO_MS=805
+MARCA_FIN_MS=1790390378271
+Worker pool de predicción: 64 workers, 74265 aciertos de 210000
+
+=== Predicción sobre 210000 pacientes de prueba ===
+Exactitud: 35.36 %
+  Anormal      97489 pacientes (46.4 %)
+  Inconcluso   47794 pacientes (22.8 %)
+  Normal       64717 pacientes (30.8 %)
+
+=== Cola de priorización: 10 pacientes con mayor probabilidad de examen ANORMAL ===
+  #  Paciente  Edad Condición     Admisión   Medicamento   Estancia  P(Anormal)  Predicción
+  1    970195    76 Arthritis     Elective   Aspirin           3 d      0.390   Anormal
+  2    866666    76 Arthritis     Elective   Aspirin           2 d      0.390   Anormal
+  3    948010    77 Arthritis     Elective   Aspirin           4 d      0.388   Anormal
+  4   1036135    83 Arthritis     Elective   Paracetamol       1 d      0.388   Anormal
+  5   1008841    84 Arthritis     Elective   Paracetamol       2 d      0.387   Anormal
+  6   1019624    82 Arthritis     Elective   Paracetamol       3 d      0.387   Anormal
+  7    867627    40 Arthritis     Elective   Penicillin        3 d      0.387   Anormal
+  8    985764    84 Arthritis     Elective   Paracetamol       3 d      0.387   Anormal
+  9   1019216    39 Arthritis     Elective   Penicillin        3 d      0.387   Anormal
+ 10   1042721    60 Arthritis     Elective   Ibuprofen        11 d      0.386   Anormal
+
+Predicciones completas guardadas en predicciones_concurrente.csv
+

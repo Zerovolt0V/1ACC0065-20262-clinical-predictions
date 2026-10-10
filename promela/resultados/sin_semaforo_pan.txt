@@ -1,0 +1,14 @@
+pan:1: assertion violated (critical<=1) (at depth 55)
+pan: wrote entrenamiento.pml.trail
+
+(Spin Version 6.5.2 -- 6 December 2019)
+Warning: Search not completed
+	+ Partial Order Reduction
+
+Full statespace search for:
+	never claim         	- (none specified)
+	assertion violations	+
+	acceptance   cycles 	- (not selected)
+	invalid end states	+
+
+State-vector 96 byte, depth reached 83, errors: 1

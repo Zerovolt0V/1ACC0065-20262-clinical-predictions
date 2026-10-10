@@ -1,0 +1,71 @@
+{
+  "Gender": {
+    "0": "Female",
+    "1": "Male"
+  },
+  "Blood Type": {
+    "0": "A+",
+    "1": "A-",
+    "2": "AB+",
+    "3": "AB-",
+    "4": "B+",
+    "5": "B-",
+    "6": "O+",
+    "7": "O-"
+  },
+  "Medical Condition": {
+    "0": "Arthritis",
+    "1": "Asthma",
+    "2": "Cancer",
+    "3": "Diabetes",
+    "4": "Hypertension",
+    "5": "Obesity"
+  },
+  "Insurance Provider": {
+    "0": "Aetna",
+    "1": "Blue Cross",
+    "2": "Cigna",
+    "3": "Medicare",
+    "4": "UnitedHealthcare"
+  },
+  "Admission Type": {
+    "0": "Elective",
+    "1": "Emergency",
+    "2": "Urgent"
+  },
+  "Medication": {
+    "0": "Aspirin",
+    "1": "Ibuprofen",
+    "2": "Lipitor",
+    "3": "Paracetamol",
+    "4": "Penicillin"
+  },
+  "Test Results": {
+    "0": "Abnormal",
+    "1": "Inconclusive",
+    "2": "Normal"
+  },
+  "Admission Day of Week": {
+    "0": "Friday",
+    "1": "Monday",
+    "2": "Saturday",
+    "3": "Sunday",
+    "4": "Thursday",
+    "5": "Tuesday",
+    "6": "Wednesday"
+  },
+  "Admission Month": {
+    "0": "April",
+    "1": "August",
+    "2": "December",
+    "3": "February",
+    "4": "January",
+    "5": "July",
+    "6": "June",
+    "7": "March",
+    "8": "May",
+    "9": "November",
+    "10": "October",
+    "11": "September"
+  }
+}
