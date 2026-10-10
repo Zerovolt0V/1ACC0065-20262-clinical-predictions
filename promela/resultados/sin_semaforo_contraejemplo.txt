@@ -1,0 +1,110 @@
+Starting Trabajador with pid 1
+  1:	proc  0 (:init::1) entrenamiento.pml:66 (state 1)	[(run Trabajador(1))]
+Starting Trabajador with pid 2
+  2:	proc  0 (:init::1) entrenamiento.pml:67 (state 2)	[(run Trabajador(2))]
+Starting Trabajador with pid 3
+  3:	proc  0 (:init::1) entrenamiento.pml:68 (state 3)	[(run Trabajador(3))]
+  4:	proc  3 (Trabajador:1) entrenamiento.pml:41 (state 1)	[((mi_epoca<2))]
+  4:	proc  3 (Trabajador:1) entrenamiento.pml:42 (state 2)	[peso_local = id]
+  5:	proc  2 (Trabajador:1) entrenamiento.pml:41 (state 1)	[((mi_epoca<2))]
+  5:	proc  2 (Trabajador:1) entrenamiento.pml:42 (state 2)	[peso_local = id]
+  6:	proc  1 (Trabajador:1) entrenamiento.pml:41 (state 1)	[((mi_epoca<2))]
+  6:	proc  1 (Trabajador:1) entrenamiento.pml:42 (state 2)	[peso_local = id]
+  7:	proc  0 (:init::1) entrenamiento.pml:71 (state 5)	[((e<2))]
+  8:	proc  3 (Trabajador:1) entrenamiento.pml:46 (state 3)	[critical = (critical+1)]
+		critical = 1
+  9:	proc  3 (Trabajador:1) entrenamiento.pml:47 (state 4)	[assert((critical<=1))]
+ 10:	proc  3 (Trabajador:1) entrenamiento.pml:48 (state 5)	[temp = suma]
+ 11:	proc  3 (Trabajador:1) entrenamiento.pml:49 (state 6)	[temp = (temp+peso_local)]
+ 12:	proc  3 (Trabajador:1) entrenamiento.pml:50 (state 7)	[suma = temp]
+		suma = 3
+ 13:	proc  3 (Trabajador:1) entrenamiento.pml:51 (state 8)	[critical = (critical-1)]
+		critical = 0
+ 14:	proc  3 (Trabajador:1) entrenamiento.pml:55 (state 9)	[terminados = (terminados+1)]
+		terminados = 1
+ 14:	proc  3 (Trabajador:1) entrenamiento.pml:56 (state 11)	[mi_epoca = (mi_epoca+1)]
+		terminados = 1
+ 15:	proc  2 (Trabajador:1) entrenamiento.pml:46 (state 3)	[critical = (critical+1)]
+		critical = 1
+ 16:	proc  2 (Trabajador:1) entrenamiento.pml:47 (state 4)	[assert((critical<=1))]
+ 17:	proc  2 (Trabajador:1) entrenamiento.pml:48 (state 5)	[temp = suma]
+ 18:	proc  2 (Trabajador:1) entrenamiento.pml:49 (state 6)	[temp = (temp+peso_local)]
+ 19:	proc  2 (Trabajador:1) entrenamiento.pml:50 (state 7)	[suma = temp]
+		suma = 5
+ 20:	proc  2 (Trabajador:1) entrenamiento.pml:51 (state 8)	[critical = (critical-1)]
+		critical = 0
+ 21:	proc  2 (Trabajador:1) entrenamiento.pml:55 (state 9)	[terminados = (terminados+1)]
+		terminados = 2
+ 21:	proc  2 (Trabajador:1) entrenamiento.pml:56 (state 11)	[mi_epoca = (mi_epoca+1)]
+		terminados = 2
+ 22:	proc  1 (Trabajador:1) entrenamiento.pml:46 (state 3)	[critical = (critical+1)]
+		critical = 1
+ 23:	proc  1 (Trabajador:1) entrenamiento.pml:47 (state 4)	[assert((critical<=1))]
+ 24:	proc  1 (Trabajador:1) entrenamiento.pml:48 (state 5)	[temp = suma]
+ 25:	proc  1 (Trabajador:1) entrenamiento.pml:49 (state 6)	[temp = (temp+peso_local)]
+ 26:	proc  1 (Trabajador:1) entrenamiento.pml:50 (state 7)	[suma = temp]
+		suma = 6
+ 27:	proc  1 (Trabajador:1) entrenamiento.pml:51 (state 8)	[critical = (critical-1)]
+		critical = 0
+ 28:	proc  1 (Trabajador:1) entrenamiento.pml:55 (state 9)	[terminados = (terminados+1)]
+		terminados = 3
+ 28:	proc  1 (Trabajador:1) entrenamiento.pml:56 (state 11)	[mi_epoca = (mi_epoca+1)]
+		terminados = 3
+ 29:	proc  0 (:init::1) entrenamiento.pml:72 (state 6)	[((terminados==3))]
+ 30:	proc  0 (:init::1) entrenamiento.pml:73 (state 7)	[assert((suma==((1+2)+3)))]
+      Epoca 1: suma = 6, promedio = 2
+ 31:	proc  0 (:init::1) entrenamiento.pml:74 (state 8)	[printf('Epoca %d: suma = %d, promedio = %d\\n',(e+1),suma,(suma/3))]
+ 32:	proc  0 (:init::1) entrenamiento.pml:75 (state 9)	[suma = 0]
+		suma = 0
+ 33:	proc  0 (:init::1) entrenamiento.pml:76 (state 10)	[terminados = 0]
+		terminados = 0
+ 34:	proc  0 (:init::1) entrenamiento.pml:77 (state 11)	[e = (e+1)]
+ 35:	proc  0 (:init::1) entrenamiento.pml:78 (state 12)	[epoca = e]
+		epoca = 1
+ 36:	proc  0 (:init::1) entrenamiento.pml:71 (state 5)	[((e<2))]
+ 37:	proc  3 (Trabajador:1) entrenamiento.pml:57 (state 12)	[((epoca==mi_epoca))]
+ 38:	proc  3 (Trabajador:1) entrenamiento.pml:41 (state 1)	[((mi_epoca<2))]
+ 38:	proc  3 (Trabajador:1) entrenamiento.pml:42 (state 2)	[peso_local = id]
+ 39:	proc  3 (Trabajador:1) entrenamiento.pml:46 (state 3)	[critical = (critical+1)]
+		critical = 1
+ 40:	proc  3 (Trabajador:1) entrenamiento.pml:47 (state 4)	[assert((critical<=1))]
+ 41:	proc  3 (Trabajador:1) entrenamiento.pml:48 (state 5)	[temp = suma]
+ 42:	proc  3 (Trabajador:1) entrenamiento.pml:49 (state 6)	[temp = (temp+peso_local)]
+ 43:	proc  3 (Trabajador:1) entrenamiento.pml:50 (state 7)	[suma = temp]
+		suma = 3
+ 44:	proc  3 (Trabajador:1) entrenamiento.pml:51 (state 8)	[critical = (critical-1)]
+		critical = 0
+ 45:	proc  3 (Trabajador:1) entrenamiento.pml:55 (state 9)	[terminados = (terminados+1)]
+		terminados = 1
+ 45:	proc  3 (Trabajador:1) entrenamiento.pml:56 (state 11)	[mi_epoca = (mi_epoca+1)]
+		terminados = 1
+ 46:	proc  2 (Trabajador:1) entrenamiento.pml:57 (state 12)	[((epoca==mi_epoca))]
+ 47:	proc  2 (Trabajador:1) entrenamiento.pml:41 (state 1)	[((mi_epoca<2))]
+ 47:	proc  2 (Trabajador:1) entrenamiento.pml:42 (state 2)	[peso_local = id]
+ 48:	proc  2 (Trabajador:1) entrenamiento.pml:46 (state 3)	[critical = (critical+1)]
+		critical = 1
+ 49:	proc  2 (Trabajador:1) entrenamiento.pml:47 (state 4)	[assert((critical<=1))]
+ 50:	proc  2 (Trabajador:1) entrenamiento.pml:48 (state 5)	[temp = suma]
+ 51:	proc  2 (Trabajador:1) entrenamiento.pml:49 (state 6)	[temp = (temp+peso_local)]
+ 52:	proc  2 (Trabajador:1) entrenamiento.pml:50 (state 7)	[suma = temp]
+		suma = 5
+ 53:	proc  1 (Trabajador:1) entrenamiento.pml:57 (state 12)	[((epoca==mi_epoca))]
+ 54:	proc  1 (Trabajador:1) entrenamiento.pml:41 (state 1)	[((mi_epoca<2))]
+ 54:	proc  1 (Trabajador:1) entrenamiento.pml:42 (state 2)	[peso_local = id]
+ 55:	proc  1 (Trabajador:1) entrenamiento.pml:46 (state 3)	[critical = (critical+1)]
+		critical = 2
+spin: entrenamiento.pml:47, Error: assertion violated
+spin: text of failed assertion: assert((critical<=1))
+ 56:	proc  1 (Trabajador:1) entrenamiento.pml:47 (state 4)	[assert((critical<=1))]
+spin: trail ends after 56 steps
+#processes: 4
+		sem = 1
+		critical = 2
+		terminados = 1
+		epoca = 1
+		suma = 5
+ 56:	proc  3 (Trabajador:1) entrenamiento.pml:57 (state 12)
+ 56:	proc  2 (Trabajador:1) entrenamiento.pml:51 (state 8)
+ 56:	proc  1 (Trabajador:1) entrenamiento.pml:48 (state 5)
+ 56:	proc  0 (:init::1) entrenamiento.pml:72 (state 6)
+4 processes created

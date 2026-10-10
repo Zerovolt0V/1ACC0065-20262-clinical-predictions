@@ -1,0 +1,4 @@
+      Epoca 1: suma = 6, promedio = 2
+      Epoca 2: suma = 6, promedio = 2
+      Entrenamiento terminado: 2 epocas, sin condiciones de carrera
+4 processes created
