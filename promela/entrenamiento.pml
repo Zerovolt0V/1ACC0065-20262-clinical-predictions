@@ -32,10 +32,12 @@ inline signal(s) {
 proctype Trabajador(byte id) {
     byte mi_epoca = 0;
     int  peso_local;
+    int  w = 2;
+    int  b = 1;
     int  temp;
     do
     :: mi_epoca < E ->
-        peso_local = id;                 
+        peso_local = w * id + b;                 
 #ifndef SIN_SEMAFORO
         wait(sem);                       
 #endif
@@ -66,7 +68,7 @@ init {
     do
     :: e < E ->
         (terminados == W);               
-        assert(suma == 1 + 2 + 3);       
+        assert(suma == 2 * (1 + 2 + 3) + 3 * 1);       
         printf("Epoca %d: suma = %d, promedio = %d\n", e + 1, suma, suma / W);
         suma = 0;
         terminados = 0;
